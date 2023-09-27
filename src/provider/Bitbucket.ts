@@ -123,7 +123,6 @@ export class BitBucket extends TypeParseProvider {
             "`](" +
             change.new.links.html.href +
             ")",
-          title: this.body.pullrequest.title,
           fields: commits,
         });
       }
