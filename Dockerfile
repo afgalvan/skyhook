@@ -1,10 +1,10 @@
-FROM node:18 as buildenv
+FROM node:18-alpine3.17 AS buildenv
 
 WORKDIR /app
 COPY . .
 RUN npm install && npm run build
 
-FROM node:18
+FROM node:18-alpine3.17
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -16,7 +16,6 @@ COPY package-lock.json /usr/src/app/
 RUN npm install && npm cache clean --force
 COPY . /usr/src/app
 
-RUN mkdir dist
 COPY --from=buildenv /app/dist /usr/src/app/dist
 
 EXPOSE 8080

@@ -1,5 +1,6 @@
 # .gcloudignore and .dockerignore should match
 
+node_modules/
 .dockerignore
 .git/
 .gitignore
